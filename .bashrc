@@ -21,6 +21,9 @@ fi
 # EXPORTS
 #######################################################
 
+# Setting xdg config home
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Disable the bell
 if [[ $iatest -gt 0 ]]; then bind "set bell-style visible"; fi
 
@@ -56,17 +59,6 @@ alias spico='sedit'
 alias nano='edit'
 alias snano='sedit'
 alias vim='nvim'
-
-# Replace batcat with cat on Fedora as batcat is not available as a RPM in any form
-if command -v lsb_release >/dev/null; then
-	DISTRIBUTION=$(lsb_release -si)
-
-	if [ "$DISTRIBUTION" = "Fedora" ]; then
-		alias cat='bat'
-	else
-		alias cat='batcat'
-	fi
-fi
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
 export CLICOLOR=1
@@ -239,6 +231,7 @@ edit() {
 		nvim "$@"
 	fi
 }
+
 sedit() {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
