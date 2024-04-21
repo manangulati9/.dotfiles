@@ -1,0 +1,196 @@
+# Mod key - Windows key
+set $mod Mod4
+
+# Direction keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Applications
+set $term kitty
+set $browser firefox
+set $file thunar
+set $discord flatpak run dev.vencord.Vesktop
+set $spotify flatpak run com.spotify.Client
+
+# Rofi
+set $menu exec $HOME/.config/rofi/bin/launcher
+set $powermenu exec $HOME/.config/rofi/bin/powermenu
+set $runner exec $HOME/.config/rofi/bin/runner
+set $screenshot exec $HOME/.config/rofi/bin/screenshot
+
+# Workspaces:
+set $ws1 r
+set $ws2 t
+set $ws3 y
+set $ws4 u
+set $ws5 i
+set $ws6 o
+set $ws7 p
+set $ws8 bracketleft
+set $ws9 bracketright
+set $ws10 backslash
+
+# Colors
+set $cl_active #89b4fa
+set $cl_inactive #313244
+set $cl_urgent #89b4fa
+
+xwayland enable
+
+# App assignments
+for_window [title="Server"] move scratchpad
+assign [title="Terminal"] 1
+assign [class="Brave-browser"] 2
+assign [app_id="firefox"] 3
+assign [app_id="vesktop"] 4
+assign [class="Spotify"] 5
+
+# Startup apps
+exec --no-startup-id ~/.config/sway/startup.sh
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id kitty --title "Terminal"
+exec --no-startup-id brave-browser
+exec --no-startup-id firefox
+exec --no-startup-id flatpak run dev.vencord.Vesktop
+exec --no-startup-id flatpak run com.spotify.Client
+bar {
+    swaybar_command waybar
+}
+
+#Themeing
+default_border pixel 3
+default_floating_border pixel 3
+gaps inner 2
+font pango: Caskaydia Cove Nerd Font Regular 10
+
+client.focused          $cl_active $cl_active $cl_active $cl_active
+client.unfocused        $cl_inactive $cl_inactive $cl_inactive $cl_inactive
+client.urgent           $cl_urgent $cl_urgent $cl_urgent $cl_urgent
+
+output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on bg ./wallpaper.jpeg fill
+
+# Lock screen
+bindsym F12 exec swaylock
+
+# Key bindings
+    # Start file manager
+    bindsym $mod+e exec $file
+
+    # Start browser
+    bindsym $mod+f exec $browser
+ 
+    # Start spotify
+    bindsym $mod+m exec $spotify
+
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Runner
+    bindsym $mod+x exec $runner
+
+    # Run
+    bindsym $mod+v exec $screenshot
+
+    # Powermenu
+    bindsym $mod+backspace exec $powermenu
+
+    # Fullscreen focused container
+    bindsym Alt+Return fullscreen
+
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Moving around:
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Switch to workspace
+    bindsym $mod+$ws1 workspace number 1
+    bindsym $mod+$ws2 workspace number 2
+    bindsym $mod+$ws3 workspace number 3
+    bindsym $mod+$ws4 workspace number 4
+    bindsym $mod+$ws5 workspace number 5
+    bindsym $mod+$ws6 workspace number 6
+    bindsym $mod+$ws7 workspace number 7
+    bindsym $mod+$ws8 workspace number 8
+    bindsym $mod+$ws9 workspace number 9
+    bindsym $mod+$ws10 workspace number 10
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+$ws1 move container to workspace number 1
+    bindsym $mod+Shift+$ws2 move container to workspace number 2
+    bindsym $mod+Shift+$ws3 move container to workspace number 3
+    bindsym $mod+Shift+$ws4 move container to workspace number 4
+    bindsym $mod+Shift+$ws5 move container to workspace number 5
+    bindsym $mod+Shift+$ws6 move container to workspace number 6
+    bindsym $mod+Shift+$ws7 move container to workspace number 7
+    bindsym $mod+Shift+$ws8 move container to workspace number 8
+    bindsym $mod+Shift+$ws9 move container to workspace number 9
+    bindsym $mod+Shift+$ws10 move container to workspace number 10
+
+# Layout stuff:
+
+    # Switch the current container between different layout styles
+    bindsym $mod+w layout toggle split
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+# Scratchpad:
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+s move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+s scratchpad show
+
+# Resizing containers:
+
+mode "resize" {
+    bindsym $mod+Shift+r mode "resize"
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+exec "dbus-update-activation-environment --systemd DISPLAY MOZ_DBUS_REMOTE"
