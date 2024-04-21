@@ -134,8 +134,8 @@ format = "[$symbol$branch]($style) "
 style = "bold italic red"
 
 [git_status]
-format = '[$all_status ](bold peach)'
-up_to_date = ""
+format = '([\($all_status $ahead_behind\)]($style)) '
+style = "bold peach"
 
 [golang]
 symbol = " "
