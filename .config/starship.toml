@@ -24,7 +24,7 @@ disabled = true
 
 [character]
 success_symbol = "[❯](bold green)"
-error_symbol = "[✗](bold red)"
+error_symbol = "[❯](bold green)"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

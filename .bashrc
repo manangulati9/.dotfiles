@@ -217,7 +217,6 @@ alias kssh="kitty +kitten ssh"
 #######################################################
 # SPECIAL FUNCTIONS
 #######################################################
-
 # Use the best version of pico installed
 edit() {
 	if [[ $(type -t jpico) == "file" ]] || ([[ $(type -t jpico) == "alias" ]] && [[ -n $(which jpico) ]]); then
@@ -675,3 +674,7 @@ else
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

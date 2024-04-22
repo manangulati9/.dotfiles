@@ -37,23 +37,21 @@ set $cl_active #89b4fa
 set $cl_inactive #313244
 set $cl_urgent #89b4fa
 
+# Misc. preferrences
 xwayland enable
 
 # App assignments
-for_window [title="Server"] move scratchpad
 assign [title="Terminal"] 1
 assign [class="Brave-browser"] 2
-assign [app_id="firefox"] 3
-assign [app_id="vesktop"] 4
-assign [class="Spotify"] 5
+assign [app_id="vesktop"] 3
+assign [class="Spotify"] 4
 
 # Startup apps
 exec --no-startup-id ~/.config/sway/startup.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id kitty --title "Terminal"
+exec --no-startup-id kitty --title "Terminal" tmux
 exec --no-startup-id brave-browser
-exec --no-startup-id firefox
 exec --no-startup-id flatpak run dev.vencord.Vesktop
 exec --no-startup-id flatpak run com.spotify.Client
 bar {

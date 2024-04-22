@@ -115,7 +115,7 @@ installZoxide() {
 }
 
 installBrave() {
-	if command_exists brave; then
+	if command_exists brave-browser; then
 		echo "Brave already installed"
 		return
 	fi
