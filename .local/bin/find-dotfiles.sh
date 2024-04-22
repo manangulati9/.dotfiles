@@ -13,7 +13,7 @@ if [[ -z $selected ]]; then
 fi
 
 # Extract the name of the selected directory and replace dots with underscores
-selected_name=$(basename "$selected" | tr . _)
+selected_name=$(basename "$selected")
 
 # Check if tmux is running
 tmux_running=$(pgrep tmux)

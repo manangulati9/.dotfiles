@@ -23,8 +23,9 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	tmux new-session -s $selected_name -c $selected nvim
 	# Check if package.json exists in the directory
 	if [ -f "$selected/package.json" ]; then
-		tmux new-window -ad -c $selected -n "shell" -t $selected_name &
-		tmux new-window -ad -c $selected -n "server" -t $selected_name "bun dev;sleep 1000"
+		tmux new-window -ad -c $selected -n "shell" -t $selected_name
+		tmux new-window -ad -c $selected -n "server" -t $selected_name
+		tmux send-keys -t "$selected_name:server" "bun dev" ENTER
 	fi
 	exit 0
 fi
@@ -34,8 +35,9 @@ if ! tmux has-session -t=$selected_name 2>/dev/null; then
 	tmux new-session -ds $selected_name -c $selected nvim
 	# Check if package.json exists in the directory
 	if [ -f "$selected/package.json" ]; then
-		tmux new-window -ad -c $selected -n "shell" -t $selected_name &
-		tmux new-window -ad -c $selected -n "server" -t $selected_name "bun dev;sleep 1000"
+		tmux new-window -ad -c $selected -n "shell" -t $selected_name
+		tmux new-window -ad -c $selected -n "server" -t $selected_name
+		tmux send-keys -t "$selected_name:server" "bun dev" ENTER
 	fi
 fi
 
