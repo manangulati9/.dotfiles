@@ -68,7 +68,7 @@ checkEnv() {
 
 installDepend() {
 	## Check for dependencies.
-	DEPENDENCIES='git sway meld jpico swaylock-effects stow tmux firefox flatpak brave kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice lxappearance neovim rofi-wayland autojump bash bash-completion tar neovim grep curl fzf'
+	DEPENDENCIES='git sway meld jpico swaylock-effects stow tmux firefox flatpak brave kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice lxappearance neovim rofi-wayland autojump bash bash-completion tar neovim grep curl fzf qt5-graphicaleffects qt5-svg qt5-quickcontrols2'
 	echo -e "${YELLOW}Installing dependencies...${RC}"
 	if [[ $PACKAGER == "pacman" ]]; then
 		if ! command_exists yay; then

@@ -15,7 +15,7 @@
     }
   },
   "custom/spotify": {
-    "format": "<span foreground='#E5B4E2'></span><span font='Caskaydia Cove Nerd Font Italic'>{}</span>",
+    "format": "<span foreground='#E5B4E2'> </span><span font='Caskaydia Cove Nerd Font Italic'>{}</span>",
     "interval": 1,
     "exec-if": "pgrep spotify",
     "on-click": "playerctl -p spotify play-pause",
