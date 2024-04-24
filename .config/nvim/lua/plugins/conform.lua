@@ -10,6 +10,7 @@ return {
       typescript = { { "biome", "prettierd", "prettier" } },
       javascriptreact = { { "biome", "prettierd", "prettier" }, "rustywind" },
       typescriptreact = { { "biome", "prettierd", "prettier" }, "rustywind" },
+      sh = { "shfmt" },
     },
   },
 }

@@ -9,8 +9,8 @@ set $right l
 
 # Applications
 set $term kitty
-set $browser firefox
-set $file thunar
+set $browser brave-browser
+set $file_manager thunar
 set $discord flatpak run dev.vencord.Vesktop
 set $spotify flatpak run com.spotify.Client
 
@@ -45,15 +45,17 @@ assign [title="Terminal"] 1
 assign [class="Brave-browser"] 2
 assign [app_id="vesktop"] 3
 assign [class="Spotify"] 4
+assign [app_id="thunar"] 5
 
 # Startup apps
 exec --no-startup-id ~/.config/sway/startup.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id kitty --title "Terminal" tmux
-exec --no-startup-id brave-browser
-exec --no-startup-id flatpak run dev.vencord.Vesktop
-exec --no-startup-id flatpak run com.spotify.Client
+exec --no-startup-id $browser
+exec --no-startup-id $discord
+exec --no-startup-id $spotify
+exec --no-startup-id $file_manager
 bar {
     swaybar_command waybar
 }
@@ -73,12 +75,22 @@ output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on 
 # Lock screen
 bindsym F12 exec swaylock
 
+# Swayidle config
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 000000' \
+	timeout 330 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+  timeout 360 'systemctl suspend' \
+	before-sleep 'swaylock -f -c 000000'
+
+exec sway-audio-idle-inhibit
+
 # Key bindings
     # Start file manager
-    bindsym $mod+e exec $file
+    bindsym $mod+f exec $file_manager
 
     # Start browser
-    bindsym $mod+f exec $browser
+    bindsym $mod+e exec $browser
  
     # Start spotify
     bindsym $mod+m exec $spotify

@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find $HOME/.dotfiles -type f | fzf)
+	selected=$(find $HOME/.dotfiles -type f | fzf --preview 'bat --style=numbers --color=always {}')
 fi
 
 # If no directory is selected, exit
