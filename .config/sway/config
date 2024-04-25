@@ -77,11 +77,10 @@ bindsym F12 exec swaylock
 
 # Swayidle config
 exec swayidle -w \
-	timeout 300 'swaylock -f -c 000000' \
-	timeout 330 'swaymsg "output * dpms off"' \
+	timeout 480 'swaylock -f -c 000000' \
+	timeout 540 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-  timeout 360 'systemctl suspend' \
-	before-sleep 'swaylock -f -c 000000'
+  timeout 600 'systemctl suspend' \
 
 exec sway-audio-idle-inhibit
 
