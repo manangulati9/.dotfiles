@@ -120,10 +120,27 @@ installBrave() {
 		return
 	fi
 
-	sudo dnf install dnf-plugins-core
-	sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-	sudo dnf install brave-browser
+	if [[ $PACKAGER == "pacman" ]]; then
+		if ! command_exists yay; then
+			echo "Installing yay..."
+			sudo ${PACKAGER} --noconfirm -S base-devel
+			$(cd /opt && sudo git clone https://aur.archlinux.org/yay-git.git && sudo chown -R ${USER}:${USER} ./yay-git && cd yay-git && makepkg --noconfirm -si)
+		else
+			echo "Command yay already installed"
+		fi
+		yay --noconfirm -S brave-bin
+	elif [[$PACKAGER == "apt" || $PACKAGER == "apt-get"]]; then
+		sudo apt install curl
+		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+		sudo apt update
+		sudo apt install brave-browser
+	else
+		sudo dnf install dnf-plugins-core
+		sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+		sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+		sudo dnf install brave-browser
+	fi
 }
 
 installDotfiles() {

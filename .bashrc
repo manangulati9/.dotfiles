@@ -21,9 +21,6 @@ fi
 # EXPORTS
 #######################################################
 
-# Setting xdg config home
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # Disable the bell
 if [[ $iatest -gt 0 ]]; then bind "set bell-style visible"; fi
 
@@ -678,3 +675,6 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+# Flatpak aliases
+alias discord="flatpak run dev.vencord.Vesktop"
