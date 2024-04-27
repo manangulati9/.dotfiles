@@ -29,7 +29,7 @@ checkEnv() {
 	fi
 
 	## Check Package Handeler
-	PACKAGEMANAGER='apt yum dnf pacman zypper'
+	PACKAGEMANAGER='apt dnf pacman zypper'
 	for pgm in ${PACKAGEMANAGER}; do
 		if command_exists ${pgm}; then
 			PACKAGER=${pgm}
@@ -68,19 +68,19 @@ checkEnv() {
 
 installDepend() {
 	## Check for dependencies.
-	DEPENDENCIES='git sway meld jpico swaylock-effects stow tmux flatpak kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice lxappearance neovim rofi-wayland autojump bash bash-completion tar neovim grep curl fzf qt5-graphicaleffects qt5-svg qt5-quickcontrols2 nodejs'
+	DEPENDENCIES='meld tldr tmux flatpak kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice lxappearance neovim rofi-wayland autojump bash-completion tar grep curl fzf qt5-qtgraphicaleffects qt5-qtsvg qt5-qtquickcontrols2 nodejs'
 	echo -e "${YELLOW}Installing dependencies...${RC}"
 	if [[ $PACKAGER == "pacman" ]]; then
 		if ! command_exists yay; then
 			echo "Installing yay..."
 			sudo ${PACKAGER} --noconfirm -S base-devel
-			$(cd /opt && sudo git clone https://aur.archlinux.org/yay-git.git && sudo chown -R ${USER}:${USER} ./yay-git && cd yay-git && makepkg --noconfirm -si)
+			$(cd /opt && sudo git clone https://aur.archlinux.org/yay.git && sudo chown -R ${USER}:${USER} ./yay && cd yay && makepkg --noconfirm -si)
 		else
 			echo "Command yay already installed"
 		fi
 		yay --noconfirm -S ${DEPENDENCIES}
 	else
-		sudo ${PACKAGER} install -yq ${DEPENDENCIES}
+		sudo ${PACKAGER} install -y ${DEPENDENCIES}
 	fi
 }
 
@@ -151,9 +151,12 @@ installFlatpakApps() {
 
 	if command_exists flatpak; then
 		echo -e "${YELLOW}Installing flatpak apps...${RC}"
-		flatpak install flathub dev.vencord.Vesktop
-		flatpak install flathub com.spotify.Client
-		bash <(curl -sSL https://raw.githubusercontent.com/SpotX-CLI/SpotX-Linux/main/install.sh) -P /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/
+		flatpak override --filesystem=$HOME/.themes
+		flatpak override --filesystem=$HOME/.icons
+		flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+		flatpak install -y flathub dev.vencord.Vesktop
+		flatpak install -y flathub com.spotify.Client
+		bash <(curl -sSL https://spotx-official.github.io/run.sh)
 	else
 		echo -e "${RED}Something went wrong during flatpak install!${RC}"
 		exit 1

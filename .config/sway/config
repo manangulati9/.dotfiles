@@ -38,7 +38,7 @@ set $cl_inactive #313244
 set $cl_urgent #89b4fa
 
 # Misc. preferrences
-xwayland enable
+# xwayland enable
 
 # App assignments
 assign [title="Terminal"] 1
@@ -72,15 +72,9 @@ client.urgent           $cl_urgent $cl_urgent $cl_urgent $cl_urgent
 
 output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on bg ./wallpaper.jpeg fill
 
-# Lock screen
-bindsym F12 exec swaylock
-
 # Swayidle config
 exec swayidle -w \
-	timeout 480 'swaylock -f -c 000000' \
-	timeout 540 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-  timeout 600 'systemctl suspend' \
+  timeout 600 'systemctl suspend'
 
 exec sway-audio-idle-inhibit
 
