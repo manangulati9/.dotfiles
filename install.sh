@@ -143,23 +143,6 @@ installBrave() {
 	fi
 }
 
-installDotfiles() {
-	if test -d "~/.dotfiles"; then
-		echo "Dotfiles already setup!"
-		return
-	fi
-
-	if command_exists stow; then
-		echo -e "${YELLOW}Setting up dotfiles...${RC}"
-		git clone https://github.com/manangulati9/.dotfiles.git ~/.dotfiles
-		cd ~/.dotfiles
-		stow .
-	else
-		echo -e "${RED}Something went wrong during stow install!${RC}"
-		exit 1
-	fi
-}
-
 installFlatpakApps() {
 	if checkFlatpakApp dev.vencord.Vesktop && checkFlatpakApp com.spotify.Client; then
 		echo "Flatpak apps already setup!"
@@ -204,7 +187,6 @@ installDepend
 installStarship
 installZoxide
 installBrave
-installDotfiles
 installTmuxTPM
 installBun
 if installFlatpakApps; then
