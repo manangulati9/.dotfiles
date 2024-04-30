@@ -3,7 +3,6 @@
   "modules-left": ["sway/workspaces"],
   "modules-center": ["custom/spotify"],
   "modules-right": ["network", "pulseaudio", "battery", "clock", "tray"],
-  // Modules configuration
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,

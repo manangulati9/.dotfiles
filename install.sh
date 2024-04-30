@@ -66,9 +66,15 @@ checkEnv() {
 
 }
 
+enableCopr() {
+	if [[ $PACKAGER == "dnf" ]]; then
+		sudo dnf copr enable atim/lazygit -y
+	fi
+}
+
 installDepend() {
 	## Check for dependencies.
-	DEPENDENCIES='meld tldr tmux flatpak kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice lxappearance neovim rofi-wayland autojump bash-completion tar grep curl fzf qt6-qtsvg qt6-qtdeclarative qt6-qtdeclarative-devel nodejs'
+	DEPENDENCIES='meld tldr tmux flatpak kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice lxappearance neovim rofi-wayland autojump bash-completion tar grep curl fzf qt6-qtsvg qt6-qtdeclarative qt6-qtdeclarative-devel lazygit nodejs'
 	echo -e "${YELLOW}Installing dependencies...${RC}"
 	if [[ $PACKAGER == "pacman" ]]; then
 		if ! command_exists yay; then
@@ -186,6 +192,7 @@ installBun() {
 
 ##### EXECUTING COMMANDS #####
 checkEnv
+enableCopr
 installDepend
 installStarship
 installZoxide
