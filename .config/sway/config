@@ -18,7 +18,6 @@ set $mail thunderbird-wayland
 # Rofi
 set $menu exec $HOME/.config/rofi/bin/launcher
 set $powermenu exec $HOME/.config/rofi/bin/powermenu
-set $runner exec $HOME/.config/rofi/bin/runner
 
 # Flameshot - Screenshot utility
 set $screenshot_gui flameshot gui
@@ -78,12 +77,15 @@ client.focused          $cl_active $cl_active $cl_active $cl_active
 client.unfocused        $cl_inactive $cl_inactive $cl_inactive $cl_inactive
 client.urgent           $cl_urgent $cl_urgent $cl_urgent $cl_urgent
 
-# Applying wallpaper and setting refresh rate for screen
+# Applying wallpaper; Setting refresh rate
 output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on bg ./wallpaper.jpeg fill
 
-# Sleep after 10 mins
+# Swayidle config
 exec swayidle -w \
-  timeout 600 'systemctl suspend'
+    timeout 400 'swaylock' \
+    timeout 600 'systemctl suspend' \
+      resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock; sleep 1'
 
 # Key bindings
     # Start file manager
@@ -104,20 +106,20 @@ exec swayidle -w \
     # Start your launcher
     bindsym $mod+d exec $menu
 
-    # Runner
-    bindsym $mod+x exec $runner
-
     # Screenshot a region
     bindsym $mod+v exec $screenshot_gui
 
     # Screenshot fullscreen
     bindsym $mod+Shift+v exec $screenshot_full
 
+    # Lockscreen manually
+    bindsym F12 exec swaylock
+
     # Powermenu
     bindsym $mod+backspace exec $powermenu
 
     # Fullscreen focused container
-    bindsym Alt+Return fullscreen
+    bindsym $mod+Alt+Return fullscreen
 
     # mouse button for dragging.
     floating_modifier $mod normal

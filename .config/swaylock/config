@@ -1,6 +1,7 @@
+daemonize
 ignore-empty-password
 disable-caps-lock-text
-image=./lockscreen.jpg
+image=$HOME/.config/swaylock/lockscreen.jpg
 font=Caskaydia Cove Nerd Font
 
 text-ver-color=00000000
