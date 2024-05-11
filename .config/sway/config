@@ -192,9 +192,9 @@ exec swayidle -w \
     bindsym $mod+s scratchpad show
 
 # Resizing containers:
+bindsym $mod+Shift+a mode "resize"
 
 mode "resize" {
-    bindsym $mod+Shift+r mode "resize"
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
