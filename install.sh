@@ -87,6 +87,10 @@ installDepend() {
 		yay --noconfirm -S ${DEPENDENCIES}
 	else
 		sudo ${PACKAGER} install -y ${DEPENDENCIES}
+		if [[$PACKAGER == 'dnf']]; then
+			dnf copr enable eddsalkield/swaylock-effects
+			dnf install swaylock-effects
+		fi
 	fi
 }
 
