@@ -78,7 +78,10 @@ client.unfocused        $cl_inactive $cl_inactive $cl_inactive $cl_inactive
 client.urgent           $cl_urgent $cl_urgent $cl_urgent $cl_urgent
 
 # Applying wallpaper; Setting refresh rate
-output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on bg ./wallpaper.jpeg fill
+output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on bg ./wallpaper.jpg fill
+
+# Enables inhibit_idle when playing audio
+exec sway-audio-idle-inhibit
 
 # Swayidle config
 exec swayidle -w \
@@ -207,8 +210,5 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-# Enables inhibit_idle when playing audio
-exec sway-audio-idle-inhibit
 
 exec "dbus-update-activation-environment --systemd DISPLAY MOZ_DBUS_REMOTE"
