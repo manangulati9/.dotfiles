@@ -24,3 +24,6 @@ flatpak override --env=FONT_NAME="$font_name"
 
 # Starting docker daemon
 systemctl start docker
+
+# Removing old linux kernels
+sudo $HOME/.local/bin/remove-old-fedora-kernels.sh
