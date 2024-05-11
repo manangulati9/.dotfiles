@@ -18,7 +18,10 @@ set $spotify flatpak run com.spotify.Client
 set $menu exec $HOME/.config/rofi/bin/launcher
 set $powermenu exec $HOME/.config/rofi/bin/powermenu
 set $runner exec $HOME/.config/rofi/bin/runner
-set $screenshot exec $HOME/.config/rofi/bin/screenshot
+
+# Flameshot - Screenshot utility
+set $screenshot_gui flameshot gui
+set $screenshot_full flameshot full --path ~/Pictures/Screenshots/
 
 # Workspaces:
 set $ws1 r
@@ -38,7 +41,7 @@ set $cl_inactive #313244
 set $cl_urgent #89b4fa
 
 # Misc. preferrences
-# xwayland enable
+xwayland enable
 
 # App assignments
 assign [title="Terminal"] 1
@@ -100,8 +103,11 @@ exec sway-audio-idle-inhibit
     # Runner
     bindsym $mod+x exec $runner
 
-    # Run
-    bindsym $mod+v exec $screenshot
+    # Screenshot a region
+    bindsym $mod+v exec $screenshot_gui
+
+    # Screenshot fullscreen
+    bindsym $mod+Shift+v exec $screenshot_full
 
     # Powermenu
     bindsym $mod+backspace exec $powermenu
