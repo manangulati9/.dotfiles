@@ -13,6 +13,7 @@ set $browser brave-browser
 set $file_manager thunar
 set $discord flatpak run dev.vencord.Vesktop
 set $spotify flatpak run com.spotify.Client
+set $mail thunderbird-wayland
 
 # Rofi
 set $menu exec $HOME/.config/rofi/bin/launcher
@@ -46,9 +47,10 @@ xwayland enable
 # App assignments
 assign [title="Terminal"] 1
 assign [class="Brave-browser"] 2
-assign [app_id="vesktop"] 3
-assign [class="Spotify"] 4
-assign [app_id="thunar"] 5
+assign [app_id="thunderbird"] 3
+assign [app_id="vesktop"] 4
+assign [class="Spotify"] 5
+assign [app_id="thunar"] 6
 
 # Startup apps
 exec --no-startup-id ~/.config/sway/startup.sh
@@ -56,9 +58,12 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id kitty --title "Terminal" tmux
 exec --no-startup-id $browser
+exec --no-startup-id $mail
 exec --no-startup-id $discord
 exec --no-startup-id $spotify
 exec --no-startup-id $file_manager
+
+# Set waybar as default sway bar
 bar {
     swaybar_command waybar
 }
@@ -73,6 +78,7 @@ client.focused          $cl_active $cl_active $cl_active $cl_active
 client.unfocused        $cl_inactive $cl_inactive $cl_inactive $cl_inactive
 client.urgent           $cl_urgent $cl_urgent $cl_urgent $cl_urgent
 
+# Applying wallpaper and setting refresh rate for screen
 output HDMI-A-1 resolution 1920x1080@179.996Hz position 1920,0 adaptive_sync on bg ./wallpaper.jpeg fill
 
 # Sleep after 10 mins
