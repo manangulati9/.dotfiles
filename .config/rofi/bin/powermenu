@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 rofi_command="rofi -theme $HOME/.config/rofi/config/powermenu.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
@@ -86,14 +87,12 @@ $reboot)
 	fi
 	;;
 $lock)
-	swaylock
+	$HOME/.local/bin/lock.sh
 	;;
 $suspend)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-		mpc -q pause
-		amixer set Master mute
-		sh $HOME/.local/bin/lock
+		$HOME/.local/bin/lock.sh
 		systemctl suspend
 	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
 		exit
