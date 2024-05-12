@@ -13,7 +13,6 @@ set $browser brave-browser
 set $file_manager thunar
 set $discord flatpak run dev.vencord.Vesktop
 set $spotify flatpak run com.spotify.Client
-set $mail thunderbird-wayland
 
 # Rofi
 set $menu exec $HOME/.config/rofi/bin/launcher
@@ -46,10 +45,15 @@ xwayland enable
 # App assignments
 assign [title="Terminal"] 1
 assign [class="Brave-browser"] 2
-assign [app_id="thunderbird"] 3
-assign [app_id="vesktop"] 4
-assign [class="Spotify"] 5
-assign [app_id="thunar"] 6
+assign [app_id="vesktop"] 3
+assign [class="Spotify"] 4
+assign [app_id="thunar"] 5
+
+# Enable floating windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_type="dialog"] floating enable focus
+for_window [window_type="menu"] floating enable
 
 # Startup apps
 exec --no-startup-id ~/.config/sway/startup.sh
@@ -57,7 +61,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id kitty --title "Terminal" tmux
 exec --no-startup-id $browser
-exec --no-startup-id $mail
 exec --no-startup-id $discord
 exec --no-startup-id $spotify
 exec --no-startup-id $file_manager
