@@ -6,4 +6,4 @@ IDLE=$HOME/.config/sway/idle
 
 swayidle \
 	timeout $LOCK_TIMEOUT "$IDLE/autolock.sh" \
-	timeout $SUSPEND_TIMEOUT "$IDLE/suspend.sh"
+	timeout $SUSPEND_TIMEOUT "systemctl suspend"
