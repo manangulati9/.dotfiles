@@ -74,7 +74,7 @@ enableCopr() {
 
 installDepend() {
 	## Check for dependencies.
-	DEPENDENCIES='flameshot tldr tmux flatpak kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice go neovim rofi-wayland autojump bash-completion tar grep curl fzf qt6-qtsvg qt6-qtdeclarative qt6-qtdeclarative-devel lazygit nodejs'
+	DEPENDENCIES='flameshot tldr tmux flatpak kitty htop thunar vlc zathura zathura-pdf-mupdf libreoffice go neovim rofi-wayland autojump bash-completion tar grep curl fzf qt6-qtsvg qt6-qtdeclarative qt6-qtdeclarative-devel lazygit nodejs ddcutil'
 	echo -e "${YELLOW}Installing dependencies...${RC}"
 	if [[ $PACKAGER == "pacman" ]]; then
 		if ! command_exists yay; then
