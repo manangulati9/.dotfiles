@@ -11,6 +11,8 @@ return {
       javascriptreact = { { "biome", "prettierd", "prettier" }, "rustywind" },
       typescriptreact = { { "biome", "prettierd", "prettier" }, "rustywind" },
       sh = { "shfmt" },
+      c = { "clang-format" },
+      cpp = { "clang-format" },
     },
   },
 }

@@ -34,7 +34,7 @@ xwayland enable
 assign [title="Terminal"] 1
 assign [class="Brave-browser"] 2
 assign [class="Spotify"] 3
-assign [app_id="thunar"] 4
+assign [app_id="vesktop"] 4
 
 # Enable floating windows
 for_window [window_role="pop-up"] floating enable
@@ -204,4 +204,4 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id kitty --title "Terminal" tmux
 exec --no-startup-id $browser
 exec --no-startup-id $spotify
-exec --no-startup-id $file_manager
+exec --no-startup-id $discord

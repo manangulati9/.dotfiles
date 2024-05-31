@@ -11,5 +11,5 @@ swayidle -w \
 	timeout $DIM_TIMEOUT "$SCRIPT_PATH/dim.sh" resume "ddcutil setvcp 10 100" \
 	timeout $LOCK_TIMEOUT "$SCRIPT_PATH/autolock.sh" \
 	timeout $SCREEN_OFF_TIMEOUT "$SCRIPT_PATH/screen_off.sh" resume "swaymsg 'output * dpms on'" \
-	timeout $SUSPEND_TIMEOUT "$SCRIPT_PATH/suspend.sh" \
+	timeout $SUSPEND_TIMEOUT "$SCRIPT_PATH/suspend.sh" resume "ddcutil setvcp 10 100; swaymsg 'output * dpms on'" \
 	before-sleep "$SCRIPT_PATH/autolock.sh"
