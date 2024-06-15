@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 old_kernels=($(dnf repoquery --installonly --latest-limit=-1 -q))
 if [ "${#old_kernels[@]}" -eq 0 ]; then
@@ -6,7 +6,7 @@ if [ "${#old_kernels[@]}" -eq 0 ]; then
 	exit 0
 fi
 
-if ! dnf remove "${old_kernels[@]}"; then
+if ! dnf remove -y "${old_kernels[@]}"; then
 	echo "Failed to remove old kernels"
 	exit 1
 fi

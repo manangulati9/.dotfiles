@@ -8,9 +8,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = 
 
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select everything" })
 
-vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true, desc = "Goto next and center view" })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { noremap = true, silent = true, desc = "Open file explorer" })
 
-vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true, desc = "Goto previous and center view" })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true, desc = "Goto next and center view" })
+
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true, desc = "Goto previous and center view" })
+
+vim.keymap.set("x", "<leader>p", '"_dP', { noremap = true, silent = true, desc = "Paste current buffer" })
 
 vim.keymap.set("n", "<leader>o", "o<ESC>", { noremap = true, silent = true, desc = "Add new line below" })
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Setting gtk-theme
 config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
@@ -26,4 +26,4 @@ flatpak override --env=FONT_NAME="$font_name"
 systemctl start docker
 
 # Removing old linux kernels
-sudo $HOME/.local/bin/kernel-cleanup.sh
+sudo sh $HOME/.local/bin/kernel-cleanup.sh

@@ -11,6 +11,7 @@ return {
       "clang-format",
       "cmakelang",
       "golangci-lint",
+      "luacheck",
     },
   },
 }
