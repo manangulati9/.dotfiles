@@ -11,7 +11,7 @@ set $right l
 set $term kitty
 set $browser brave-browser
 set $file_manager thunar
-set $discord flatpak run dev.vencord.Vesktop
+set $discord vesktop
 set $spotify flatpak run com.spotify.Client
 
 # Rofi

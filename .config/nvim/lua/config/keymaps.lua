@@ -8,7 +8,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = 
 
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select everything" })
 
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { noremap = true, silent = true, desc = "Open file explorer" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { noremap = true, silent = true, desc = "Open file explorer" })
 
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true, desc = "Goto next and center view" })
 
