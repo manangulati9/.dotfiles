@@ -92,7 +92,6 @@ $lock)
 $suspend)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-		$HOME/.local/bin/lock.sh
 		systemctl suspend
 	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
 		exit

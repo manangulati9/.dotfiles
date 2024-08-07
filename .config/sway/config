@@ -34,7 +34,7 @@ xwayland enable
 assign [title="Terminal"] 1
 assign [class="Brave-browser"] 2
 assign [class="Spotify"] 3
-assign [app_id="vesktop"] 4
+assign [class="vesktop"] 4
 
 # Enable floating windows
 for_window [window_role="pop-up"] floating enable
@@ -196,7 +196,6 @@ mode "resize" {
 # Startup scripts
 exec "dbus-update-activation-environment --systemd DISPLAY MOZ_DBUS_REMOTE"
 exec --no-startup-id ~/.local/bin/startup.sh
-exec_always ~/.local/bin/idle/run.sh
 
 # Startup apps
 exec --no-startup-id nm-applet
