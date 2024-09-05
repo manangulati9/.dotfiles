@@ -4,7 +4,6 @@
 config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
 if [ ! -f "$config" ]; then exit 1; fi
 
-gnome_schema="org.gnome.desktop.interface"
 gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
 icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
 cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
@@ -26,4 +25,4 @@ flatpak override --env=FONT_NAME="$font_name"
 systemctl start docker
 
 # Removing old linux kernels
-sudo sh $HOME/.local/bin/kernel-cleanup.sh
+sudo sh "$HOME"/.local/bin/kernel-cleanup.sh
