@@ -73,7 +73,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 10
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -92,10 +92,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 5
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    #frame_color = "#eba0ac"
+    frame_color = "#89b4fa"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -109,7 +109,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = auto
+    separator_color = frame
 
     # Sort messages by urgency.
     sort = yes
@@ -217,7 +217,7 @@
     max_icon_size = 128
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
-    icon_path = /home/archfiend9/.icons/Tela-circle-dracula/16/actions:/home/archfiend9/.icons/Tela-circle-dracula/16/apps:/home/archfiend9/.icons/Tela-circle-dracula/16/devices:/home/archfiend9/.icons/Tela-circle-dracula/16/mimetypes:/home/archfiend9/.icons/Tela-circle-dracula/16/panel:/home/archfiend9/.icons/Tela-circle-dracula/16/places:/home/archfiend9/.icons/Tela-circle-dracula/16/status
+    icon_path = $HOME/.icons/Tela-circle-dracula/16/actions:$HOME/.icons/Tela-circle-dracula/16/apps:$HOME/.icons/Tela-circle-dracula/16/devices:$HOME/.icons/Tela-circle-dracula/16/mimetypes:$HOME/.icons/Tela-circle-dracula/16/panel:$HOME/.icons/Tela-circle-dracula/16/places:$HOME/.icons/Tela-circle-dracula/16/status
 
     ### History ###
 
@@ -231,7 +231,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/rofi -config "/home/archfiend9/.config/rofi/notification.rasi" -dmenu -p dunst:
+    dmenu = /usr/bin/rofi -config "$HOME/.config/rofi/notification.rasi" -dmenu -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -442,78 +442,20 @@
     format = "<span size="250%">%s</span>\n%b"
 
 [urgency_critical]
-    background = "#f5e0dc"
-    foreground = "#1e1e2e"
-    frame_color = "#f38ba8"
-    icon = "/home/archfiend9/.config/dunst/icons/critical.svg"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#fab387"
+    icon = "$HOME/.config/dunst/icons/critical.svg"
     timeout = 0
 
 [urgency_low]
-    background = "#657FA380"
-    foreground = "#CCE2FFE6"
-    frame_color = "#657FA303"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    icon = "$HOME/.config/dunst/icons/hyprdots.svg"
     timeout = 5
 
 [urgency_normal]
-    background = "#6B3A5580"
-    foreground = "#FFCCE8E6"
-    frame_color = "#6B3A5503"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_low]
-    background = "#6565A380"
-    foreground = "#CCCCFFE6"
-    frame_color = "#6565A303"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_normal]
-    background = "#3A3C6B80"
-    foreground = "#CCCEFFE6"
-    frame_color = "#3A3C6B03"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_low]
-    background = "#A3658A80"
-    foreground = "#FFCCEAE6"
-    frame_color = "#A3658A03"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_normal]
-    background = "#593A6B80"
-    foreground = "#EDCCFFE6"
-    frame_color = "#593A6B03"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_low]
-    background = "#84A36580"
-    foreground = "#E6FFCCE6"
-    frame_color = "#84A36503"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_normal]
-    background = "#3A626B80"
-    foreground = "#CCF6FFE6"
-    frame_color = "#3A626B03"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_low]
-    background = "#6574A380"
-    foreground = "#CCD8FFE6"
-    frame_color = "#6574A303"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
-    timeout = 5
-
-[urgency_normal]
-    background = "#3A4A6B80"
-    foreground = "#CCDDFFE6"
-    frame_color = "#3A4A6B03"
-    icon = "/home/archfiend9/.config/dunst/icons/hyprdots.svg"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    icon = "$HOME/.config/dunst/icons/hyprdots.svg"
     timeout = 5
