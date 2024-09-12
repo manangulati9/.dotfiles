@@ -4,12 +4,11 @@ final_space = true
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
-  newline = true
 
   [[blocks.segments]]
     type = 'path'
     style = 'plain'
-    template = '  {{ .Path }} '
+    template = ' {{ .Path }} '
     foreground = 'p:blue'
 
     [blocks.segments.properties]
@@ -55,25 +54,20 @@ final_space = true
   [[blocks.segments]]
     type = 'text'
     style = 'plain'
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}green{{end}}",
-    ]
+    foreground_templates = ["{{if gt .Code 0}}red{{end}}", "{{if eq .Code 0}}green{{end}}"]
     background = 'transparent'
-    template = '  ❯'
+    template = ' ❯'
 
 [transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}green{{end}}",
-  ]
+  foreground_templates = ["{{if gt .Code 0}}red{{end}}", "{{if eq .Code 0}}green{{end}}"]
   background = 'transparent'
-  template = '  ❯ '
+  template = ' ❯'
+  newline = true
 
 [secondary_prompt]
   foreground = 'magenta'
   background = 'transparent'
-  template = '  ❯❯ '
+  template = ' ❯❯'
 
 [palette]
   blue = '#89B4FA'

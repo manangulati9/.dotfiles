@@ -2,7 +2,7 @@
 ZSH=/usr/share/oh-my-zsh/
 
 # Init oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"
+eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/catppuccin_mocha.omp.json)"
 
 # List of plugins used
 plugins=( git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting )
@@ -464,6 +464,7 @@ fi
 # Variable Exports
 export EDITOR=nvim
 export VISUAL=nvim
+export KITTY_APP=nvim nvim
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
