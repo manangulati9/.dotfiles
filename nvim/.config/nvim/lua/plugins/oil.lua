@@ -7,6 +7,7 @@ return {
       ["l"] = "actions.select",
       ["h"] = "actions.parent",
       ["q"] = "actions.close",
+      ["."] = "actions.toggle_hidden",
     },
     view_options = {
       show_hidden = true,
