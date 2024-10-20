@@ -19,7 +19,13 @@ return {
       jsonls = {},
       prismals = {},
       vimls = {},
-      golangci_lint_ls = {},
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = false,
+        analyses = {
+          unusedparams = true,
+        },
+      },
       rust_analyzer = {},
       clangd = {},
       cmake = {},

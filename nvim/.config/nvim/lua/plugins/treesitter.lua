@@ -15,7 +15,6 @@ return {
         "python",
         "regex",
         "tsx",
-        "vim",
         "yaml",
         "typescript",
         "go",

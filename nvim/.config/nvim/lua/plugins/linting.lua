@@ -10,7 +10,6 @@ return {
       typescriptreact = { "eslint_d" },
       javascript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
-      go = { "golangci-lint" },
       cmake = { "cmakelang" },
       json = { "jsonlint" },
       lua = { "luacheck" },

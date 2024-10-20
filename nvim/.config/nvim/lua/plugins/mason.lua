@@ -10,8 +10,8 @@ return {
       "rustywind",
       "clang-format",
       "cmakelang",
-      "golangci-lint",
       "luacheck",
+      "gopls",
     },
   },
 }

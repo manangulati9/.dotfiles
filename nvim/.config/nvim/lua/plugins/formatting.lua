@@ -14,6 +14,7 @@ return {
       c = { "clang-format" },
       cpp = { "clang-format" },
       java = { "clang-format" },
+      go = { "gofumpt", "goimports" },
     },
   },
 }

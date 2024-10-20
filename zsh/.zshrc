@@ -494,3 +494,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# go
+export GOPATH=$HOME/go
