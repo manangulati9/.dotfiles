@@ -1,5 +1,4 @@
 {
-  // sourced from header module //
   "layer": "top",
   "position": "top",
   "mod": "dock",
@@ -18,7 +17,6 @@
   "modules-center": [
     "custom/padd",
     "custom/l_end",
-    "idle_inhibitor",
     "clock",
     "custom/spotify",
     "custom/r_end",
@@ -34,11 +32,8 @@
     "custom/r_end",
     "custom/l_end",
     "backlight",
-    "network",
     "pulseaudio",
-    "pulseaudio#microphone",
     "custom/updates",
-    "custom/keybindhint",
     "custom/r_end",
     "custom/l_end",
     "privacy",
@@ -56,34 +51,10 @@
     "on-scroll-down": "hyprctl dispatch workspace +1",
     "persistent-workspaces": {}
   },
-  "hyprland/window": {
-    "format": "  {}",
-    "rotate": 0,
-    "separate-outputs": true,
-    "rewrite": {
-      "archfiend9@archlinux:(.*)": "$1 ",
-      "(.*) — Mozilla Firefox": "$1 󰈹",
-      "(.*)Mozilla Firefox": "Firefox 󰈹",
-      "(.*) - Visual Studio Code": "$1 󰨞",
-      "(.*)Visual Studio Code": "Code 󰨞",
-      "(.*) — Dolphin": "$1 󰉋",
-      "(.*)Spotify": "Spotify 󰓇",
-      "(.*)Steam": "Steam 󰓓"
-    },
-    "max-length": 1000
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "rotate": 0,
-    "format-icons": {
-      "activated": "󰥔 ",
-      "deactivated": " "
-    }
-  },
   "clock": {
-    "format": "{:%H:%M} ",
+    "format": "󰥔  {:%H:%M}  ",
     "rotate": 0,
-    "format-alt": "{:%R 󰃭 %d·%m·%y}",
+    "format-alt": "󰥔  {:%R 󰃭 %d·%m·%y}  ",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
       "mode": "month",
@@ -124,7 +95,7 @@
     "states": {
       "c": 90, // critical
       "h": 60, // high
-      "m": 30, // medium
+      "m": 30 // medium
     },
     "interval": 30,
     "format": "󰾆 {used}GB",
@@ -138,7 +109,7 @@
     "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
   },
   "custom/cpuinfo": {
-    "exec": " cpuinfo.sh",
+    "exec": "$HOME/.local/share/bin/cpuinfo.sh",
     "return-type": "json",
     "format": "{}",
     "rotate": 0,
@@ -147,7 +118,7 @@
     "max-length": 1000
   },
   "custom/gpuinfo": {
-    "exec": " gpuinfo.sh",
+    "exec": "$HOME/.local/share/bin/gpuinfo.sh",
     "return-type": "json",
     "format": "{}",
     "rotate": 0,
@@ -157,7 +128,7 @@
     "on-click": "gpuinfo.sh --toggle"
   },
   "custom/gpuinfo#amd": {
-    "exec": " gpuinfo.sh --use amd ",
+    "exec": "$HOME/.local/share/bin/gpuinfo.sh --use amd ",
     "return-type": "json",
     "format": "{}",
     "rotate": 0,
@@ -165,25 +136,11 @@
     "tooltip": true,
     "max-length": 1000
   },
-  "network": {
-    "tooltip": true,
-    "format-wifi": " ",
-    "rotate": 0,
-    "format-ethernet": "󰈀 ",
-    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-    "format-linked": "󰈀 {ifname} (No IP)",
-    "format-disconnected": "󰖪 ",
-    "tooltip-format-disconnected": "Disconnected",
-    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-    "interval": 2,
-  },
   "pulseaudio": {
     "format": "{icon} {volume}",
     "rotate": 0,
     "format-muted": "婢",
     "on-click": "pavucontrol -t 3",
-    "on-click-right": "volumecontrol.sh -s ''",
-    "on-click-middle": "volumecontrol.sh -o m",
     "on-scroll-up": "volumecontrol.sh -o i",
     "on-scroll-down": "volumecontrol.sh -o d",
     "tooltip-format": "{icon} {desc} // {volume}%",
@@ -202,32 +159,15 @@
       ]
     }
   },
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "rotate": 0,
-    "format-source": "",
-    "format-source-muted": "",
-    "on-click": "pavucontrol -t 4",
-    "on-click-middle": "volumecontrol.sh -i m",
-    "on-scroll-up": "volumecontrol.sh -i i",
-    "on-scroll-down": "volumecontrol.sh -i d",
-    "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
-    "scroll-step": 5
-  },
   "custom/updates": {
-    "exec": "systemupdate.sh",
+    "exec": "$HOME/.local/share/bin/systemupdate.sh",
     "return-type": "json",
     "format": "{}",
     "rotate": 0,
-    "on-click": "hyprctl dispatch exec 'systemupdate.sh up'",
+    "on-click": "hyprctl dispatch exec '$HOME/.local/share/bin/systemupdate.sh up'",
     "interval": 86400, // once every day
     "tooltip": true,
     "signal": 20
-  },
-  "custom/keybindhint": {
-    "format": " ",
-    "rotate": 0,
-    "on-click": "keybinds_hint.sh"
   },
   "privacy": {
     "icon-size": 12,
@@ -252,14 +192,12 @@
     "spacing": 5
   },
   "custom/spotify": {
-    "exec": "mediaplayer.py --player spotify",
+    "exec": "$HOME/.local/share/bin/mediaplayer.py --player spotify",
     "format": "{}",
     "return-type": "json",
     "on-click": "playerctl play-pause --player spotify",
     "on-click-right": "playerctl next --player spotify",
     "on-click-middle": "playerctl previous --player spotify",
-    "on-scroll-up": "volumecontrol.sh -p spotify i",
-    "on-scroll-down": "volumecontrol.sh -p spotify d",
     "max-length": 25,
     "escape": true,
     "tooltip": true

@@ -109,5 +109,3 @@ d) action_${ctrl} d ;;
 m) "${ctrl}" "${srce}" -t && notify_mute && exit 0 ;;
 *) print_error ;;
 esac
-
-notify_vol
