@@ -22,15 +22,6 @@ export FZF_DEFAULT_OPTS=" \
 export EDITOR=nvim
 export VISUAL=nvim
 
-# color for manpages in less makes manpages a little easier to read
-export LESS_TERMCAP_mb=$'\E[02;31m'
-export LESS_TERMCAP_md=$'\E[02;31m'
-export LESS_TERMCAP_me=$'\E[1m'
-export LESS_TERMCAP_se=$'\E[1m'
-export LESS_TERMCAP_so=$'\E[02;44;33m'
-export LESS_TERMCAP_ue=$'\E[1m'
-export LESS_TERMCAP_us=$'\E[02;32m'
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"

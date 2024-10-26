@@ -26,5 +26,5 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   exit 0
 fi
 
-cd $(dirname $selected)
+cd $(dirname "$selected") || return
 tmux new-window -a -n "$selected_name" "nvim $selected"
