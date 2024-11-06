@@ -12,6 +12,8 @@ return {
       "cmakelang",
       "luacheck",
       "gopls",
+      "tailwindcss",
+      "vtsls",
     },
   },
 }

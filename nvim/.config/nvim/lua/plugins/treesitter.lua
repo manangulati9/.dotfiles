@@ -6,6 +6,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "bash",
         "html",
+        "css",
         "javascript",
         "latex",
         "json",
@@ -21,7 +22,9 @@ return {
         "rust",
         "c",
         "cpp",
+        "java",
         "dockerfile",
+        "prisma",
       })
     end,
   },
