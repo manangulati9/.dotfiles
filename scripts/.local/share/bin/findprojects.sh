@@ -27,5 +27,5 @@ splitPanes() {
   fi
 }
 
-idx=$(tmux new-window -P -F "#{window_index}" -n "$session" -c "$project" nvim)
+idx=$(tmux new-window -P -F "#{window_index}" -n "$session" -c "$project" \; send-keys "nvim" ENTER)
 splitPanes

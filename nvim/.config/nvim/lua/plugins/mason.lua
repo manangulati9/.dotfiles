@@ -12,7 +12,7 @@ return {
       "cmakelang",
       "luacheck",
       "gopls",
-      "tailwindcss",
+      "tailwindcss-language-server",
       "vtsls",
     },
   },

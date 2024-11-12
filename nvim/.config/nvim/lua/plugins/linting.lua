@@ -5,13 +5,11 @@ return {
     -- Event to trigger linters
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     linters_by_ft = {
-      fish = { "fish" },
       typescript = { "biomejs" },
       typescriptreact = { "biomejs" },
       javascript = { "biomejs" },
       javascriptreact = { "biomejs" },
       cmake = { "cmakelang" },
-      json = { "jsonlint" },
       lua = { "luacheck" },
       -- Use the "*" filetype to run linters on all filetypes.
       -- ['*'] = { 'global linter' },
