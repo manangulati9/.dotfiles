@@ -1,7 +1,7 @@
 * {
     bg-col:  #1e1e2e;
     bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
+    border-col: #cdd6f4;
     selected-col: #1e1e2e;
     blue: #89b4fa;
     fg-col: #cdd6f4;
@@ -21,6 +21,7 @@ window {
     height: 360px;
     border: 3px;
     border-color: @border-col;
+    border-radius: 10px;
     background-color: @bg-col;
 }
 
@@ -50,9 +51,11 @@ textbox-prompt-colon {
 
 entry {
     padding: 6px;
-    margin: 20px 0px 0px 10px;
+    margin: 20px 10px 0px 10px;
     text-color: @fg-col;
     background-color: @bg-col;
+    border: 0px 0px 2px 0px;
+    border-color: @border-col;
 }
 
 listview {

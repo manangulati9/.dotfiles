@@ -7,7 +7,7 @@ configuration{
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "   Apps ";
-    display-Network: " 󰤨  Network";
+    display-Network: " 󰤨  Network ";
     sidebar-mode: false;
 }
 
