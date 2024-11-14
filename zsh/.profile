@@ -1,3 +1,5 @@
+export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin:"
+
 # fzf colors
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313245,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \

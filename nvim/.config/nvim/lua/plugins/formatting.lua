@@ -33,6 +33,7 @@ return {
       cpp = { "clang-format" },
       java = { "clang-format" },
       go = { "gofumpt", "goimports" },
+      json = { "biome" },
     },
   },
 }
