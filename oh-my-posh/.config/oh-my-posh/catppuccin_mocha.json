@@ -52,7 +52,7 @@
 						"revert_icon": "\uf0e2 ",
 						"tag_icon": "\uf412 "
 					},
-					"template": "{{ .HEAD }}{{ if .Staging.Changed }}!{{ end }}<yellow>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}{{ if gt .Working.Added 0 }}{{ .Working.Added }}+{{ end }} {{ if gt .Working.Modified 0 }}{{ .Working.Modified }}!{{ end }} {{ if gt .Working.Deleted 0 }}{{ .Working.Deleted }}-{{ end }}</>",
+					"template": "{{ .HEAD }}{{ if .Staging.Changed }}!{{ end }} <p:green>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</><yellow>{{ if gt .Working.Added 0 }}{{ .Working.Added }}+{{ end }} {{ if gt .Working.Modified 0 }}{{ .Working.Modified }}!{{ end }} {{ if gt .Working.Deleted 0 }}{{ .Working.Deleted }}-{{ end }}</>",
 					"style": "plain",
 					"type": "git"
 				}
