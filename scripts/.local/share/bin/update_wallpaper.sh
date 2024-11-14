@@ -1,7 +1,7 @@
 #!/bin/env sh
 
 if [ -z "$1" ]; then
-  swww img ~/Pictures/Wallpapers/street.gif --transition-step 255 --transition-fps 255
+  swww img ~/Pictures/Wallpapers/rain_world_1.png --transition-step 255 --transition-fps 255
   exit 1
 fi
 

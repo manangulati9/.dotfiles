@@ -1,5 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"enable_cursor_positioning": true,
 	"palette": {
 		"os": "#ACB0BE",
 		"closer": "p:os",
@@ -9,7 +10,6 @@
 		"red": "#F38BA8",
 		"green": "#A6E3A1"
 	},
-	"enable_cursor_positioning": true,
 	"transient_prompt": {
 		"foreground_templates": [
 			"{{if gt .Code 0}}p:red{{end}}",
@@ -32,10 +32,10 @@
 					"properties": {
 						"folder_icon": "..\ue5fe..",
 						"home_icon": "~",
-						"style": "agnoster_short"
+						"style": "full"
 					},
 					"style": "plain",
-					"template": "{{ .Path }} ",
+					"template": "{{ .Path }}  ",
 					"type": "path"
 				},
 				{
@@ -52,7 +52,7 @@
 						"revert_icon": "\uf0e2 ",
 						"tag_icon": "\uf412 "
 					},
-					"template": "{{ .HEAD }}<p:green>{{ if gt .Behind 0 }} ⇣{{ end }}{{ if gt .Ahead 0 }} ⇡{{ end }}</><green>{{ if gt .Staging.Added 0 }} {{ .Staging.Added }}+{{ end }}{{ if gt .Staging.Modified 0 }} {{ .Staging.Modified }}!{{ end }}{{ if gt .Staging.Deleted 0 }} {{ .Staging.Deleted }}-{{ end }}</><yellow>{{ if gt .Working.Added 0 }} {{ .Working.Added }}+{{ end }}{{ if gt .Working.Deleted 0 }} {{ .Working.Deleted }}-{{ end }}</>",
+					"template": "{{ .HEAD }}<p:green>{{ if gt .Behind 0 }} ⇣{{ end }}{{ if gt .Ahead 0 }} ⇡{{ end }}</><yellow>{{ if gt .Working.Untracked 0 }} {{ .Working.Untracked }}!{{ end }}{{ if gt .Working.Added 0 }} {{ .Working.Added }}+{{ end }}{{ if gt .Working.Deleted 0 }} {{ .Working.Deleted }}-{{ end }}</><green>{{ if gt .Staging.Added 0 }} {{ .Staging.Added }}+{{ end }}{{ if gt .Staging.Modified 0 }} {{ .Staging.Modified }}*{{ end }}{{ if gt .Staging.Deleted 0 }} {{ .Staging.Deleted }}-{{ end }}</>",
 					"style": "plain",
 					"type": "git"
 				}
