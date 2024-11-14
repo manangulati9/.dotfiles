@@ -1,6 +1,5 @@
 {
 	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-	"enable_cursor_positioning": true,
 	"palette": {
 		"os": "#ACB0BE",
 		"closer": "p:os",
@@ -95,5 +94,6 @@
 		}
 	],
 	"final_space": true,
-	"version": 3
+	"version": 3,
+	"enable_cursor_positioning": true
 }
