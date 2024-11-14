@@ -35,11 +35,11 @@
 						"style": "full"
 					},
 					"style": "plain",
-					"template": "{{ .Path }}  ",
+					"template": "{{ .Path }} ",
 					"type": "path"
 				},
 				{
-					"foreground": "p:pink",
+					"foreground": "yellow",
 					"properties": {
 						"branch_icon": "\ue725 ",
 						"cherry_pick_icon": "\ue29b ",
@@ -52,7 +52,7 @@
 						"revert_icon": "\uf0e2 ",
 						"tag_icon": "\uf412 "
 					},
-					"template": "{{ .HEAD }}<p:green>{{ if gt .Behind 0 }} ⇣{{ end }}{{ if gt .Ahead 0 }} ⇡{{ end }}</><yellow>{{ if gt .Working.Untracked 0 }} {{ .Working.Untracked }}!{{ end }}{{ if gt .Working.Added 0 }} {{ .Working.Added }}+{{ end }}{{ if gt .Working.Deleted 0 }} {{ .Working.Deleted }}-{{ end }}</><green>{{ if gt .Staging.Added 0 }} {{ .Staging.Added }}+{{ end }}{{ if gt .Staging.Modified 0 }} {{ .Staging.Modified }}*{{ end }}{{ if gt .Staging.Deleted 0 }} {{ .Staging.Deleted }}-{{ end }}</>",
+					"template": "{{ .HEAD }}<p:green>{{ if gt .Behind 0 }} ⇣{{ end }}{{ if gt .Ahead 0 }} ⇡{{ end }}</><p:red>{{ if gt .Working.Untracked 0 }} {{ .Working.Untracked }}!{{ end }}{{ if gt .Working.Added 0 }} {{ .Working.Added }}+{{ end }}{{ if gt .Working.Modified 0 }} {{ .Working.Modified }}*{{ end }}{{ if gt .Working.Deleted 0 }} {{ .Working.Deleted }}-{{ end }}</><p:green>{{ if gt .Staging.Added 0 }} {{ .Staging.Added }}+{{ end }}{{ if gt .Staging.Modified 0 }} {{ .Staging.Modified }}*{{ end }}{{ if gt .Staging.Deleted 0 }} {{ .Staging.Deleted }}-{{ end }}</>",
 					"style": "plain",
 					"type": "git"
 				}
