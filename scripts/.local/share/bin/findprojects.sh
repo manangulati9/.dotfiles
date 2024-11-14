@@ -17,17 +17,6 @@ fi
 # Extract the name of the selected directory and replace dots with underscores
 session=$(basename "$project" | tr . _)
 
-splitPanes() {
-  # Check if package.json exists in the directory
-  if [ -f "$project/package.json" ]; then
-    tmux split-window -dh -c "$project" -l 70 \; split-window -dv -c "$project" -t ":$idx.1"
-    tmux send-keys -t ":$idx.1" "bun dev" ENTER
-  else
-    tmux split-window -dh -c "$project" -l 70
-  fi
-}
-
-idx=$(tmux new-window -P -F "#{window_index}" -n "$session" -c "$project")
+tmux new-window -n "$session" -c "$project"
 sleep 0.15
-tmux send-keys "nvim" ENTER
-splitPanes
+tmux send-keys "nvim" ENTER \; split-window -dh -c "$project" -l 70
