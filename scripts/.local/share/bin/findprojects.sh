@@ -28,6 +28,6 @@ splitPanes() {
 }
 
 idx=$(tmux new-window -P -F "#{window_index}" -n "$session" -c "$project")
-sleep 0.13
+sleep 0.15
 tmux send-keys "nvim" ENTER
 splitPanes
