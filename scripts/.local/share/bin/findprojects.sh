@@ -18,5 +18,5 @@ fi
 session=$(basename "$project" | tr . _)
 
 tmux new-window -n "$session" -c "$project"
-sleep 0.15
-tmux send-keys "nvim" ENTER \; split-window -dh -c "$project" -l 70
+sleep 0.2
+tmux send-keys "nvim" ENTER \; split-window -dh -c "$project" -l 55

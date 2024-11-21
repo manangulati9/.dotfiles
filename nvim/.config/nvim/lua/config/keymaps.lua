@@ -4,7 +4,6 @@
 -- Add any additional keymaps here
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Move half page down and center view" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Move half page down and center view" })
-vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select everything" })
 vim.keymap.set("n", "<leader>e", function()
   require("oil").toggle_float(".")
 end, { noremap = true, silent = true, desc = "Open file explorer" })
