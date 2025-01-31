@@ -83,7 +83,6 @@ alias freshclam='sudo freshclam'
 alias vi='nvim'
 alias svi='sudo vi'
 alias vis='nvim "+set si"'
-alias neofetch='fastfetch'
 
 # Handy change dir shortcuts
 alias home='cd ~'

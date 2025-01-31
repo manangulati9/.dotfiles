@@ -5,4 +5,5 @@ local opt = vim.opt
 
 opt.wrap = true
 opt.clipboard = "unnamedplus"
+vim.g.snacks_animate = false
 -- opt.cursorline = false

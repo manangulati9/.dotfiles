@@ -5,10 +5,10 @@ return {
     -- Event to trigger linters
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     linters_by_ft = {
-      typescript = { "biomejs" },
-      typescriptreact = { "biomejs" },
-      javascript = { "biomejs" },
-      javascriptreact = { "biomejs" },
+      typescript = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
+      javascript = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
       cmake = { "cmakelang" },
       lua = { "luacheck" },
       -- Use the "*" filetype to run linters on all filetypes.

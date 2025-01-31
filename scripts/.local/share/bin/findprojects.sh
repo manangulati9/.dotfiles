@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # Check if an argument is provided, if not, use fzf to select a directory from $HOME/Projects
 if [[ $# -eq 1 ]]; then
@@ -17,6 +17,25 @@ fi
 # Extract the name of the selected directory and replace dots with underscores
 session=$(basename "$project" | tr . _)
 
-tmux new-window -n "$session" -c "$project"
-sleep 0.2
-tmux send-keys "nvim" ENTER \; split-window -dh -c "$project" -l 55
+# Check if tmux is running
+tmux_running=$(pgrep tmux)
+
+# If neither TMUX environment variable nor tmux process is running, start a new tmux session with the selected directory
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  tmux new-session -s "$session" -c "$project"
+  sleep 0.2
+  tmux send-keys -t "$session" "nvim" ENTER
+  tmux new-window -ad -c "$project" -n "terminal" -t "$session"
+  exit 0
+fi
+
+# If a tmux session with the selected directory name doesn't exist, create a new detached session with the selected directory
+if ! tmux has-session -t="$session" 2>/dev/null; then
+  tmux new-session -ds "$session" -c "$project"
+  sleep 0.2
+  tmux send-keys -t "$session" "nvim" ENTER
+  tmux new-window -ad -c "$project" -n "terminal" -t "$session"
+fi
+
+# Switch to the tmux session with the selected directory name
+tmux switch-client -t "$session"

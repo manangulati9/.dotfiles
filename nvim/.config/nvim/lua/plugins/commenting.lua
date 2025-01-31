@@ -1,5 +1,3 @@
-vim.opt.updatetime = 100
-
 return {
   "echasnovski/mini.comment",
   dependencies = {

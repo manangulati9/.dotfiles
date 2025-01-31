@@ -20,8 +20,12 @@ return {
       -- Conform will run multiple formatters sequentially
       python = { "isort", "black" },
       -- Use a sub-list to run only the first available formatter
-      javascript = { "biome", "prettierd", stop_at_first = true },
-      typescript = { "biome", "prettierd", stop_at_first = true },
+      javascript = function(bufnr)
+        return { first(bufnr, "biome", "prettierd"), "rustywind" }
+      end,
+      typescript = function(bufnr)
+        return { first(bufnr, "biome", "prettierd"), "rustywind" }
+      end,
       javascriptreact = function(bufnr)
         return { first(bufnr, "biome", "prettierd"), "rustywind" }
       end,
