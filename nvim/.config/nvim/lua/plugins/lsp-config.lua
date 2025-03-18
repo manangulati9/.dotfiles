@@ -3,6 +3,7 @@ return {
   opts = {
     inlay_hints = { enabled = false },
     servers = {
+      eslint = { enabled = false },
       gopls = {
         completeUnimported = true,
         usePlaceholders = false,

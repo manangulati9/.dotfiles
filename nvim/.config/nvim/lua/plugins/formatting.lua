@@ -21,16 +21,16 @@ return {
       python = { "isort", "black" },
       -- Use a sub-list to run only the first available formatter
       javascript = function(bufnr)
-        return { first(bufnr, "biome", "prettierd"), "rustywind" }
+        return { first(bufnr, "prettierd", "biome"), "rustywind" }
       end,
       typescript = function(bufnr)
-        return { first(bufnr, "biome", "prettierd"), "rustywind" }
+        return { first(bufnr, "prettierd", "biome"), "rustywind" }
       end,
       javascriptreact = function(bufnr)
-        return { first(bufnr, "biome", "prettierd"), "rustywind" }
+        return { first(bufnr, "prettierd", "biome"), "rustywind" }
       end,
       typescriptreact = function(bufnr)
-        return { first(bufnr, "biome", "prettierd"), "rustywind" }
+        return { first(bufnr, "prettierd", "biome"), "rustywind" }
       end,
       sh = { "shfmt" },
       c = { "clang-format" },
