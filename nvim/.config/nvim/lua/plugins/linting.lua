@@ -21,14 +21,31 @@ return {
     -- or add custom linters.
     ---@type table<string,table>
     linters = {
-      -- -- Example of using selene only when a selene.toml file is present
-      -- selene = {
-      --   -- `condition` is another LazyVim extension that allows you to
-      --   -- dynamically enable/disable linters based on the context.
-      --   condition = function(ctx)
-      --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
-      --   end,
-      -- },
+      -- Example of using eslint_d only when a eslint.config.js file is present
+      eslint_d = {
+        -- `condition` is another LazyVim extension that allows you to
+        -- dynamically enable/disable linters based on the context.
+        condition = function(ctx)
+          local config_files = {
+            "eslint.config.js",
+            "eslint.config.mjs",
+            "eslint.config.cjs",
+            "eslint.config.ts",
+            "eslint.config.mts",
+            "eslint.config.cts",
+            ".eslintrc.json",
+          }
+
+          for _, filename in ipairs(config_files) do
+            local found = vim.fs.find(filename, { path = ctx.filename, upward = true })[1]
+            if found then
+              return found
+            end
+          end
+
+          return nil
+        end,
+      },
     },
   },
   config = function(_, opts)

@@ -11,6 +11,15 @@ return {
           unusedparams = true,
         },
       },
+      vtsls = {
+        settings = {
+          typescript = {
+            preferences = {
+              importModuleSpecifier = "non-relative",
+            },
+          },
+        },
+      },
     },
   },
 }

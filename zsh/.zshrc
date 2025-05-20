@@ -1,4 +1,4 @@
-source $HOME/.profile
+source $HOME/.zprofile
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -458,3 +458,9 @@ fi
 
 # Oh-my-posh
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"

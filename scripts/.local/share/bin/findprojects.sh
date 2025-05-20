@@ -23,7 +23,7 @@ tmux_running=$(pgrep tmux)
 # If neither TMUX environment variable nor tmux process is running, start a new tmux session with the selected directory
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   tmux new-session -s "$session" -c "$project"
-  sleep 0.2
+  sleep 0.25
   tmux send-keys -t "$session" "nvim" ENTER
   tmux new-window -ad -c "$project" -n "terminal" -t "$session"
   exit 0
@@ -32,7 +32,7 @@ fi
 # If a tmux session with the selected directory name doesn't exist, create a new detached session with the selected directory
 if ! tmux has-session -t="$session" 2>/dev/null; then
   tmux new-session -ds "$session" -c "$project"
-  sleep 0.2
+  sleep 0.25
   tmux send-keys -t "$session" "nvim" ENTER
   tmux new-window -ad -c "$project" -n "terminal" -t "$session"
 fi
