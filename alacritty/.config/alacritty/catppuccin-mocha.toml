@@ -1,0 +1,65 @@
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#e0e6ff"         # brighter than original for sharper text
+dim_foreground = "#8a8faf"     # slightly lighter than original dim for readability
+bright_foreground = "#e0e6ff"
+
+[colors.cursor]
+text = "#1e1e2e"
+cursor = "#f5e0dc"
+
+[colors.vi_mode_cursor]
+text = "#1e1e2e"
+cursor = "#7da6ff"
+
+[colors.search.matches]
+foreground = "#1e1e2e"
+background = "#b6bce8"         # cooler, higher contrast version of original gray-blue
+
+[colors.search.focused_match]
+foreground = "#1e1e2e"
+background = "#6be36c"         # matches high-contrast green
+
+[colors.footer_bar]
+foreground = "#1e1e2e"
+background = "#b6bce8"         # aligned with matches
+
+[colors.hints.start]
+foreground = "#1e1e2e"
+background = "#ffd75f"         # matches yellow from palette
+
+[colors.hints.end]
+foreground = "#1e1e2e"
+background = "#b6bce8"
+
+[colors.selection]
+text = "#1e1e2e"
+background = "#ffb7d1"         # matches cursor tone for consistency
+
+[colors.normal]
+black = "#2a2c38"
+red = "#ff6f9f"
+green = "#6be36c"
+yellow = "#ffd75f"
+blue = "#4da6ff"
+magenta = "#ff85dd"
+cyan = "#4de4cf"
+white = "#d0d5f5"
+
+[colors.bright]
+black = "#3a3d4a"
+red = "#ff6f9f"
+green = "#6be36c"
+yellow = "#ffd75f"
+blue = "#4da6ff"
+magenta = "#ff85dd"
+cyan = "#4de4cf"
+white = "#f0f4ff"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#ff9a64"              # warmer, more saturated orange to match theme
+
+[[colors.indexed_colors]]
+index = 17
+color = "#ffb7d1"              # matches selection/cursor magenta-pink
