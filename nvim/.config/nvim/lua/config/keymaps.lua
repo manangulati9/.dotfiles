@@ -3,9 +3,6 @@
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Move half page down and center view" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Move half page down and center view" })
--- vim.keymap.set("n", "<leader>e", function()
---   require("oil").toggle_float(".")
--- end, { noremap = true, silent = true, desc = "Open file explorer" })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true, desc = "Goto next and center view" })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true, desc = "Goto previous and center view" })
 vim.keymap.set("x", "<leader>p", '"_dP', { noremap = true, silent = true, desc = "Paste current buffer" })

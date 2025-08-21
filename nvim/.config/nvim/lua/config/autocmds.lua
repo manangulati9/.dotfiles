@@ -13,10 +13,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.fn.setreg("l", "yoconsole.log('" .. esc .. "pa:" .. esc .. "la, " .. esc .. "pl")
   end,
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python" },
-  callback = function()
-    require("swenv.api").auto_venv()
-  end,
-})
