@@ -16,6 +16,13 @@ return {
           typescript = {
             preferences = {
               importModuleSpecifier = "non-relative",
+              includePackageJsonAutoImports = "off",
+            },
+          },
+          experimental = {
+            completion = {
+              enableServerSideFuzzyMatch = true,
+              entriesLimit = 50,
             },
           },
         },
