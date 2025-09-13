@@ -1,7 +1,7 @@
 source $HOME/.zprofile
 
 # Path to your oh-my-zsh installation.
-ZSH=$HOME/.oh-my-zsh/
+ZSH=$HOME/.oh-my-zsh
 
 # List of plugins used
 plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
